@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <relationship name="scores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerScore" inverseName="game" inverseEntity="PlayerScore"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="icon" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="score" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerScore" inverseName="player" inverseEntity="PlayerScore"/>
+    </entity>
+    <entity name="PlayerScore" representedClassName="PlayerScore" syncable="YES">
+        <attribute name="civilian" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="coin" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="commercial" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="guild" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="science" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="war" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wonder" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="scores" inverseEntity="Game"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="score" inverseEntity="Player"/>
+    </entity>
+    <elements>
+        <element name="Player" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="Game" positionX="-36" positionY="9" width="128" height="88"/>
+        <element name="PlayerScore" positionX="-18" positionY="27" width="128" height="178"/>
+    </elements>
+</model>
